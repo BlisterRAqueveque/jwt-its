@@ -1,0 +1,31 @@
+services:
+  jwt-server:
+    build:
+      context: . # El contexto del directorio de trabajo
+      dockerfile: Dockerfile # El nombre del dockerfile
+    container_name: jwt-server # Nombre del contenedor
+    restart: unless-stopped # Ante un error, el contenedor se levanta automáticamente, con la excepción de ser parado por el usuario
+    ports:
+      - '3000:3000' # Cambia según el puerto del servidor
+    command: ['node', 'dist/main.js'] # A los archivos siempre se apunta por la ruta absoluta
+    env_file:
+      - ./.env # Ubicación del archivo de environment
+    volumes:
+      # - <host>:<host_container>
+      # Usar rutas absolutas
+      - ./uploads:/uploads
+
+## Comandos
+  # Levanta el contenedor
+    # -d Para hacer el detach del comando
+    # docker-compose up -d
+    # En caso de hacer cambios en el archivo compose, pasar el flag --build
+    # docker-compose up --build
+  # Lo baja
+    # docker-compose down
+  # Elimina contenedores detenidos
+    # docker container prune
+  # Elimina imagenes no utilizadas
+    # docker image prune
+  # Elimina recursos no utilizados
+    # docker system prune
