@@ -27,6 +27,7 @@ Este repositorio contiene la API para el registro de usuarios, JWT y rutas. A co
 | `joi`                             | `^17.13.3` | `npm install joi`                  | Librería para validación de esquemas y objetos en JavaScript.                                                                                                       |
 | `passport-jwt`                    | `^4.0.1`   | `npm install passport-jwt`         | Estrategia de Passport para la autenticación con JWT.                                                                                                              |
 | `typeorm`                         | `^0.3.17`  | `npm install typeorm`              | ORM para interactuar con bases de datos.                                                                                                                            |
+| `@types/multer`                   | `^1.4.12`  | `npm install @types/multer`        | Carga de archivos.                                                                                                                         |
 
 ---
 

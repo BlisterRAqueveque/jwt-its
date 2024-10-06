@@ -5,9 +5,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { dbConfig } from './configuration';
 import { AuthMiddleware, UsersModule } from './users';
 import * as express from 'express';
+import { MulterModule } from '@nestjs/platform-express';
+import { imgStorage } from './helpers';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dbConfig), UsersModule],
+  imports: [
+    TypeOrmModule.forRoot(dbConfig),
+    UsersModule,
+    MulterModule.register({
+      storage: imgStorage('').storage,
+      fileFilter: imgStorage('').fileFilter,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
